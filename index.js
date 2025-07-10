@@ -19,7 +19,7 @@ app.use(express.json())
 
 mongoose.connect(`${MONGO}mongoosetest`)
 const db = mongoose.connection
-db.once("open", () +> {
+db.once("open", () => {
     console.log(`connected: ${MONGO}`)
 })
 
@@ -28,6 +28,6 @@ try {
     const token = req.headers.authorization
     const decodedToken = await jwt.verify(token, process.env.JWT_SECRET)
 }
-
+catch{}
 }
 
