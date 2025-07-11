@@ -22,5 +22,34 @@ router.get("/", async (req, res) =>{
 
 //GET student by ID  /api/blog/:id
 router.get("/:id", async (req, res) => {
-    
+    try {
+        const blog = await Blog.findById(req.params.id)
+
+        if (!blog) {
+            return res.status(404).json({
+                message:"Blog not found"
+            })
+        }
+
+        res.status(200).json({
+            blog: blog,
+            message: "Blog retrieved successfully"
+        })
+
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({
+            message: "Error retrieving blog"
+        })
+    }
+})
+
+router.post("/new", async (req, res) => {
+    try {
+        const blog = new Blog({
+            
+        })
+    } catch (error) {
+        
+    }
 })
