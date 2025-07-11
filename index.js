@@ -45,8 +45,8 @@ app.get ('/api/health', (req, res) => {
     res.json ({status: 'ok'})
 })
 
-app.get("/api/public", (req, res))=> {
+app.get("/api/public", (req, res) => {
     res.json({
         message: "This is a public route. No authentication required"
     })
-}
+})
